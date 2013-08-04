@@ -2,6 +2,9 @@ var assert = require('assert')
 var Promise = require('promise')
 var ls = require('../')
 
+function order(a, b) {
+  return a.path < b.path ? -1 : 1
+}
 function test(fn) {
   it('lists the files and folders in a directory', function (done) {
     var res = fn(__dirname + '/fixture')
@@ -14,7 +17,7 @@ function test(fn) {
           name: stat.name,
           isDirectory: stat.isDirectory()
         }
-      }), [
+      }).sort(order), [
         { path: './dir-a', name: 'dir-a', isDirectory: true },
         { path: './dir-b', name: 'dir-b', isDirectory: true },
         { path: './file-a.txt', name: 'file-a.txt', isDirectory: false },
@@ -24,7 +27,7 @@ function test(fn) {
         { path: './dir-a/file-b.txt', name: 'file-b.txt', isDirectory: false },
         { path: './dir-b/file-b.txt', name: 'file-b.txt', isDirectory: false },
         { path: './dir-b/file-c.txt', name: 'file-c.txt', isDirectory: false }
-      ])
+      ].sort(order))
     }).nodeify(done)
   })
   it('accepts a filter', function (done) {
