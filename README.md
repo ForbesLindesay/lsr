@@ -13,7 +13,10 @@ Recursive readdir (`ls -R`)
 ## Usage
 
 ```js
+// Synchronous
 console.dir(lsr.sync(__dirname))
+
+// Node style callback
 lsr(__dirname, function (err, res) {
   if (err) throw err
   console.dir(res)
@@ -22,9 +25,13 @@ lsr(__dirname, {filter: function (stat) { return stat.name != 'node_modules' }},
   if (err) throw err
   console.dir(res)
 })
-lsr(__dirname).done(function (res) {
+
+// Promise
+lsr(__dirname).then(function (res) {
   console.dir(res)
 })
+
+// Stream
 lsr.stream(__dirname).pipe(getPath()).pipe(process.stdout)
 ```
 
