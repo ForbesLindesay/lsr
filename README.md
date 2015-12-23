@@ -3,8 +3,8 @@
 Recursive readdir (`ls -R`)
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/lsr/master.svg)](https://travis-ci.org/ForbesLindesay/lsr)
-[![Dependency Status](https://img.shields.io/gemnasium/ForbesLindesay/lsr.svg)](https://gemnasium.com/ForbesLindesay/lsr)
-[![NPM version](https://img.shields.io/npm/v/lsr.svg)](http://badge.fury.io/js/lsr)
+[![Dependency Status](https://img.shields.io/david/ForbesLindesay/lsr.svg)](https://david-dm.org/ForbesLindesay/lsr)
+[![NPM version](https://img.shields.io/npm/v/lsr.svg)](https://www.npmjs.com/package/lsr)
 
 ## Installation
 
