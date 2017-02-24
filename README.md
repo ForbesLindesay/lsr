@@ -1,5 +1,7 @@
 # lsr
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/lsr.svg)](https://greenkeeper.io/)
+
 Recursive readdir (`ls -R`)
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/lsr/master.svg)](https://travis-ci.org/ForbesLindesay/lsr)
