@@ -9,7 +9,7 @@ function test(fn) {
   it('lists the files and folders in a directory', function (done) {
     var res = fn(__dirname + '/fixture')
     if (typeof res.buffer === 'function') res = res.buffer()
-    res = Promise.from(res)
+    res = Promise.resolve(res)
     res.then(function (res) {
       assert.deepEqual(res.map(function (stat) {
         return {
@@ -33,7 +33,7 @@ function test(fn) {
   it('accepts a filter', function (done) {
     var res = fn(__dirname + '/fixture', {filter: function (stat) { return stat.isDirectory() }})
     if (typeof res.buffer === 'function') res = res.buffer()
-    res = Promise.from(res)
+    res = Promise.resolve(res)
     res.then(function (res) {
       assert.deepEqual(res.map(function (stat) {
         return {
@@ -50,7 +50,7 @@ function test(fn) {
   it('accepts a filterPath', function (done) {
     var res = fn(__dirname + '/fixture', {filterPath: function (path) { return /^\.\/dir\-a/.test(path) }})
     if (typeof res.buffer === 'function') res = res.buffer()
-    res = Promise.from(res)
+    res = Promise.resolve(res)
     res.then(function (res) {
       assert.deepEqual(res.map(function (stat) {
         return {
@@ -68,11 +68,11 @@ function test(fn) {
 }
 
 describe('ls(dirname, options, callback)', function () {
-  test(ls)
+  test(ls.lsrAsync)
 })
 describe('ls.sync(dirname, options)', function () {
-  test(ls.sync)
+  test(ls.lsrSync)
 })
 describe('ls.stream(dirname, options)', function () {
-  test(ls.stream)
+  test(ls.lsrStream)
 })
