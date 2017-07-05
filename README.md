@@ -13,7 +13,7 @@ Recursive readdir (`ls -R`)
 ## Usage
 
 ```js
-const {lsrSync, lsrAsync, lsrStream} = require('lsrc');
+const {lsrSync, lsrAsync, lsrStream} = require('lsr');
 // Synchronous
 console.dir(lsrSync(__dirname))
 
